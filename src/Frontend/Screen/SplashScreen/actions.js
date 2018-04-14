@@ -16,7 +16,7 @@ export const handleChangeRoute = () => {
     let userData = await store.get(KEYSTORE.SET_USER)
     setTimeout(() => {
       userData
-        ? Actions.homeScreen({ type: ActionConst.RESET })
+        ? Actions.tabbar({ type: ActionConst.RESET })
         : Actions.loginScreen({ type: ActionConst.RESET })
     }, 500)
   }

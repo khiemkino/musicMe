@@ -6,15 +6,33 @@ const styles = EStyleSheet.create({
     position: 'absolute',
     opacity: 0
   },
+  btnStyle: {
+    resizeMode: 'contain',
+    height: height(30),
+    width: width(60)
+  },
+  welcomeStyle: {
+    fontSize: width(10),
+    fontFamily: '$fontBold',
+    fontWeight: 'bold'
+  },
+  backgroundStyle: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    position: 'absolute',
+    zIndex: -1
+  },
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: '$main',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center'
   },
   spkSpinner: {
-    color: 'white',
+    marginTop: height(5),
+    color: '$black',
     alignSelf: 'center'
   },
   logoStyle: {

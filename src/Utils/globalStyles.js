@@ -9,8 +9,8 @@ export const AppFont = {
 }
 
 export const AppColor = {
-  main: 'rgb(249,99,50)',
-  green: 'rgb(139,195,74)',
+  main: '#FFE803',
+  black: '#0E0E0E',
   gray: 'rgb(105,105,105)'
 }
 
@@ -24,7 +24,7 @@ export const txtDefault = {
 const styles = EStyleSheet.create({
   backgroundDefault: {
     flex: 1,
-    backgroundColor: '#F4F3F3'
+    backgroundColor: 'white'
   }
 })
 

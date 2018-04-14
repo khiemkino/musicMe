@@ -1,8 +1,6 @@
 import { statusName } from '@/globalConstants'
 import { AppColor } from '@/globalStyles'
-// import io from 'socket.io-client'
 import moment from 'moment'
-import { getExchangeRate } from '#/Redux/actionSaga/sagaActions'
 import I18n from 'react-native-i18n'
 
 export const keyExtractor = (item, index) => {
@@ -65,60 +63,4 @@ export const showAlert = (THIS, strMessage, isError) => {
 
 export const calculatePercentIncrease = (calculateNum, compareNum) => {
   return formatNumber(((compareNum - calculateNum) / (calculateNum)) * 100, true) + '%'
-}
-
-export const concatString = (array) => {
-  let nameSignal = ''
-  array.map((item, index) => {
-    nameSignal += item.name
-    if (index !== (array.length - 1)) {
-      nameSignal += '/'
-    }
-  })
-  return nameSignal
-}
-
-export const concatStringAdd = (array) => {
-  let nameSignal = ''
-  array.map((item, index) => {
-    nameSignal += item
-    if (index !== (array.length - 1)) {
-      nameSignal += ', '
-    }
-  })
-  return nameSignal
-}
-
-export const updateExchangeRate = (dispatch) => {
-  // Create WebSocket connection.
-  const ws = new WebSocket('wss://stream.binance.com:9443/ws/engbtc@aggTrade')
-  // Connection opened
-  ws.addEventListener('open', function (event) {
-    console.log(event)
-  })
-  // Listen for messages
-  ws.addEventListener('message', function (newEvent) {
-    var wsEvent = JSON.parse(newEvent.data)
-    console.log(wsEvent)
-    dispatch(getExchangeRate(wsEvent))
-  })
-  // var socket = io.connect('http://localhost:3000/', { transports: ['websocket'] })
-
-  // socket.on('connect', (event) => console.log(event))
-  // socket.on('error', (event) => console.log(event))
-
-  // socket.emit('add user', 'yen')
-  // socket.emit('new message', 'love123')
-  // socket.emit('binance')
-
-  // socket.on('new test', function (data) {
-  //   console.log(data)
-  // })
-
-  // socket.on('join', (event) => {
-  //   console.log(event)
-  // })
-  // socket.on('binance', function (data) {
-  //   console.log(data)
-  // })
 }

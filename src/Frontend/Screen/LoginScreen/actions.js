@@ -28,7 +28,7 @@ export const handleLoginFacebook = () => {
               console.log(profile)
               if (userData) {
                 dispatch(setLoginUser(userData))
-                Actions.homeScreen()
+                Actions.tabbar()
               }
             }
           }
