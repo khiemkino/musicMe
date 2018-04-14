@@ -66,7 +66,7 @@ export default class PlayScreen extends React.PureComponent {
             uri: songItem.image,
             priority: FastImage.priority.normal }}
           resizeMode={FastImage.resizeMode.cover} />
-        <Animatable.View duration={5000} animation="rotate" iterationCount="infinite" style={styles.songShadow}>
+        <Animatable.View duration={5000} easing={'ease'} animation="rotate" iterationCount="infinite" style={styles.songShadow}>
           <FastImage style={styles.songImage}
             source={{
               uri: songItem.image,

@@ -116,10 +116,10 @@ const styles = EStyleSheet.create({
     shadowColor: 'black',
     shadowOffset: {
       width: 1,
-      height: 2
+      height: 1
     },
     shadowOpacity: 0.5,
-    shadowRadius: 3
+    shadowRadius: 2
   }
 
 })
