@@ -1,11 +1,13 @@
 import React from 'react'
+import { Image } from 'react-native'
 import Scrollable from 'react-native-scrollable-tab-view'
 
 import HomeScreen from '~/Screen/HomeScreen'
 import CoreLayoutContainer from '~/Container/CoreLayoutContainer'
 
-// custom tabbar
+import images from '*/Image'
 import Tabbar from './tabbar'
+import styles from './styles'
 
 // custom modal
 import { AppAlert } from '~/Components/AppAlert'
@@ -18,7 +20,7 @@ class TabbarTopScreen extends React.Component {
   render () {
     const { iInitialPage = 0 } = this.props
     return (
-      <CoreLayoutContainer ref={'scrTabWalletTop'} headerStyle={{ position: 'absolute' }}>
+      <CoreLayoutContainer ref={'scrTabWalletTop'} headerStyle={{ position: 'absolute', backgroundColor: 'transparent' }}>
         <Scrollable
           initialPage={iInitialPage}
           tabBarPosition="bottom"
@@ -31,6 +33,7 @@ class TabbarTopScreen extends React.Component {
           <HomeScreen tabLabel={'setting'} />
 
         </Scrollable>
+        <Image source={images.backgroundInside} style={styles.backgroundStyle} />
         <AppAlert ref={'appAlert'} />
       </CoreLayoutContainer>
 

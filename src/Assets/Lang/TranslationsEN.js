@@ -3,5 +3,6 @@ export default {
   'home': 'Home',
   'album': 'Albums',
   'playlist': 'Playlist',
-  'setting': 'Settings'
+  'setting': 'Settings',
+  'search': 'Enter key search'
 }

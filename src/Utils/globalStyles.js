@@ -10,6 +10,7 @@ export const AppFont = {
 
 export const AppColor = {
   main: '#FFE803',
+  green: 'rgb(139,195,74)',
   black: '#0E0E0E',
   gray: 'rgb(105,105,105)'
 }

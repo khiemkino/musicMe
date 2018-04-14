@@ -23,6 +23,13 @@ const styles = EStyleSheet.create({
     height: height(8),
     justifyContent: 'space-between'
   },
+  backgroundStyle: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    position: 'absolute',
+    zIndex: -1
+  },
   imageContainer: {
     height: width(5),
     width: width(5),
@@ -36,7 +43,8 @@ const styles = EStyleSheet.create({
     resizeMode: 'contain'
   },
   txtStyle: {
-    textAlign: 'center', color: '#FFFFFF'
+    textAlign: 'center',
+    color: '$black'
   },
   // Modal Style
   mdAddMoreToken: {

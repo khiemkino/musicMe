@@ -19,12 +19,15 @@ const TabbarScreen = (props) => {
     <View style={[styles.tabs, style]}>
       {tabs.map((tab, i) => {
         return (
-          <TouchableOpacity disabled={activeTab === i}
-            ref={(icon) => { icons[i] = icon }}
+          <TouchableOpacity disabled={activeTab === i} activeOpacity={1}
             key={tab} onPress={() => goToPage(i)} style={styles.tab}>
-            <MaterialIcons name={icons[i].icon} size={width(7)} color={'black'} />
-            <Text numberOfLines={1}
-              style={[styles.txtStyle, { fontSize: width(3), color: activeTab === i ? 'white' : '#555555' }]}>{I18n.t(tab)}</Text>
+            <View style={{ alignItems: 'center',
+              justifyContent: 'center',
+              opacity: activeTab === i ? 1 : 0.5 }}>
+              <MaterialIcons name={icons[i].icon} size={width(7)} color={'black'} />
+              <Text numberOfLines={1}
+                style={styles.txtStyle}>{I18n.t(tab)}</Text>
+            </View>
           </TouchableOpacity>
         )
       })}

@@ -6,12 +6,11 @@ import { iconBack } from '@/globalIcon'
 import * as Animatable from 'react-native-animatable'
 
 const AppSearchBar = (props) => {
-  const { containerStyle, inputStyle, value, txtHolder, placeHolderStyle, isActiveSearchName, searchData, handleResults,
-    renderRight, isActiveSearch, handleClearInput, handleActiveSearch, handleInputSearch } = props
+  const { containerStyle, inputStyle, value, txtHolder, placeHolderStyle, searchData, handleResults, renderLeft,
+    renderRight, handleClearInput, handleInputSearch } = props
 
   const deActiveSearch = () => {
     handleClearInput()
-    handleActiveSearch()
     onChangeText('')
   }
 
@@ -31,16 +30,13 @@ const AppSearchBar = (props) => {
     }
 
     let filterData = searchData.filter(item =>
-      isActiveSearchName
-        ? item.name.toLowerCase().includes(input.toLowerCase())
-        : item.detail.toLowerCase().includes(input.toLowerCase())
+      item.name.toLowerCase().includes(input.toLowerCase())
     )
 
     return filterData
   }
 
   return (
-    isActiveSearch &&
     <Animatable.View style={[styles.rowContainer, containerStyle]} animation={'fadeIn'}>
 
       <Animatable.Text transition={'opacity'}
@@ -48,9 +44,9 @@ const AppSearchBar = (props) => {
           (value ? styles.placeHolderHide : styles.placeHolderShow)]}>{txtHolder}</Animatable.Text>
 
       <View style={styles.searchLabelContainer}>
-        <TouchableOpacity onPress={deActiveSearch} style={styles.iconContainer}>
-          {iconBack}
-        </TouchableOpacity>
+        <View style={styles.iconContainer}>
+          {renderLeft}
+        </View>
       </View>
       <TextInput
         {...this.props}

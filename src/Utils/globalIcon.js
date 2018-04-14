@@ -14,9 +14,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const blackColor = '#5F5F5F'
 
 // Ionicons
+export const icShuffle = <Ionicons name={'ios-shuffle'} size={width(9)} color={blackColor} />
 export const icClose = <Ionicons name={'ios-close'} size={width(9)} color={blackColor} />
 export const lockIcon = <Ionicons name='ios-lock' size={width(5)} color={'white'} />
-export const menuIcon = <Ionicons name='ios-menu' size={width(10)} color={'black'} />
+export const menuIcon = <Ionicons name='ios-menu' size={width(9)} color={'black'} />
 export const searchIcon = <Ionicons name='ios-search' size={width(8)} color={'black'} />
 export const iconFlash = <Ionicons name='md-flash' size={width(4)} color={'white'} />
 export const iconBack = <Ionicons name='ios-arrow-back' size={width(8)} color={'black'} />
@@ -28,6 +29,8 @@ export const icCloseLarge = <Ionicons name='md-close' size={width(4)} color={'wh
 export const copyIcon = <Ionicons name='ios-copy' size={width(5)} color={blackColor} />
 
 // FontAwesome
+export const backwardIcon = <FontAwesome name='backward' size={width(5)} color={'black'} />
+export const forwardIcon = <FontAwesome name='forward' size={width(5)} color={'black'} />
 export const userIcon = <FontAwesome name='user-o' size={width(5)} color={'white'} />
 export const icStar = <FontAwesome name='star-o' size={width(6)} color={'white'} />
 export const dollarIcon = <FontAwesome name='dollar' size={width(3.5)} color={blackColor} />
@@ -40,6 +43,7 @@ export const icSignal = <MaterialCommunityIcons name='signal' size={width(4)} co
 export const ethIcon = <MaterialCommunityIcons name='currency-eth' size={width(5)} color={blackColor} />
 
 // Feather
+export const repeatIcon = <Feather name='repeat' size={width(6)} color={blackColor} />
 export const referIcon = <Feather name='user-plus' size={width(4)} color={'black'} />
 export const iconUp = <Feather name='arrow-up' size={width(4)} color={'#F97855'} />
 export const iconDownDb = <Feather name='arrow-down' size={width(4)} color={'#F97855'} />
@@ -54,8 +58,12 @@ export const icHome = <SimpleLineIcons name='home' size={width(5)} color={'white
 // Entypo
 export const iconShuffle = <Entypo name='shuffle' size={width(3.5)} color={blackColor} />
 export const iconFlashBlack = <Entypo name='flash' size={width(4)} color={blackColor} />
+export const iconHeartActive = <FontAwesome name='heart' size={width(7)} color={'#FFE803'} />
+export const iconHeart = <FontAwesome name='heart-o' size={width(7)} color={'black'} />
 
 // Octicons
 export const icBonus = <Octicons name='gift' size={width(6)} color={'white'} />
 
+export const playIcon = <MaterialIcons name='play-arrow' size={width(10)} color={'black'} />
+export const pauseIcon = <MaterialIcons name='pause' size={width(10)} color={'#FFF305'} />
 export const placeIcon = <MaterialIcons name='place' size={width(5)} color={blackColor} />

@@ -2,12 +2,10 @@ import { KEYSTORE } from '@/globalConstants'
 import { Actions, ActionConst } from 'react-native-router-flux'
 import { EventRegister } from 'react-native-event-listeners'
 import store from 'react-native-simple-store'
-import { updateExchangeRate } from '@/globalFunction'
 
 export const handleConnectionChange = (isConnected) => {
   return async (dispatch, getState) => {
     !isConnected && EventRegister.emit('internetChange')
-    updateExchangeRate(dispatch)
   }
 }
 

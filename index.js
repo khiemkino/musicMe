@@ -12,6 +12,7 @@ Text.defaultProps.allowFontScaling = false
 // DEFAULT GLOBAL STYLE FOR ZIGNAL
 EStyleSheet.build({
   $main: AppColor.main,
+  $green: AppColor.green,
   $black: AppColor.black,
   $gray: AppColor.gray,
   $textColor: 'rgb(44,44,44)',

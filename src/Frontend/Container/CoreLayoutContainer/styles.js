@@ -21,13 +21,6 @@ const styles = EStyleSheet.create({
     backgroundColor: 'white',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 1,
-      height: 4
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
     alignItems: 'center',
     alignSelf: 'center'
   },

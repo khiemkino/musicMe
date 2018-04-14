@@ -1,9 +1,9 @@
 
 const serverUrl = 'https://musicmeserver.herokuapp.com/'
 export default class ZignalService {
-  static async getSignal () {
+  static async getSong () {
     try {
-      var response = await fetch(serverUrl + 'signal', {
+      var response = await fetch(serverUrl + 'song', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',

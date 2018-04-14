@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux'
 import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk'
-import MusicService from '#/Api/services/MusicService'
+import MusicService from '#/Api/MusicService'
 import { setLoginUser } from '#/Redux/actions/globalActions'
 
 var THIS

@@ -53,7 +53,7 @@ const styles = EStyleSheet.create({
     width: width(10),
     alignItems: 'center',
     justifyContent: 'center',
-    right: width(3.2)
+    right: width(2.5)
   },
   // Text Style
   txtPlaceHolderAdmin: {
