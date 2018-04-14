@@ -1,0 +1,35 @@
+{
+  "presets": [
+    "react-native"
+  ],
+  "plugins": [
+    [
+      "babel-plugin-root-import",
+      [
+        {
+          "rootPathPrefix": "@",
+          "rootPathSuffix": "./src/Utils"
+        },
+        {
+          "rootPathPrefix": "~",
+          "rootPathSuffix": "./src/Frontend"
+        },
+        {
+          "rootPathPrefix": "#",
+          "rootPathSuffix": "./src/Backend"
+        },
+        {
+          "rootPathPrefix": "*",
+          "rootPathSuffix": "./src/Assets"
+        }
+      ]
+    ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-remove-console"
+      ]
+    }
+  }
+}
