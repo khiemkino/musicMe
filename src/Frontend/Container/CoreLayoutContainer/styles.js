@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 import { width, height } from '@/globalStyles'
 
 const ISIOS = Platform.OS === 'ios'
-const heightNavBar = height(ISIOS ? 10 : 8.5)
+const heightNavBar = height(ISIOS ? 6 : 8.5)
 const topNavBarIOS = height(ISIOS ? 3 : 0)
 const navBarFit = height(ISIOS ? 5 : 2)
 

@@ -5,13 +5,16 @@ import { width, height } from '@/globalStyles'
 const styles = EStyleSheet.create({
   tab: {
     width: width(25),
-    height: height(8),
+    height: height(7),
     backgroundColor: '$main',
     justifyContent: 'center',
     alignItems: 'center'
+
   },
 
   tabs: {
+    position: 'absolute',
+    bottom: 0,
     flexDirection: 'row',
     borderWidth: 1,
     borderTopWidth: 0,
@@ -20,7 +23,7 @@ const styles = EStyleSheet.create({
     borderBottomColor: 'rgba(0,0,0,0.05)',
     backgroundColor: '#111213',
     width: width(100),
-    height: height(8),
+    height: height(7),
     justifyContent: 'space-between'
   },
   backgroundStyle: {

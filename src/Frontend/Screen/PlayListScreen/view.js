@@ -65,7 +65,17 @@ export default class HomeScreen extends PureComponent {
             <TouchableOpacity onPress={handleOpenMenu}>
               {menuIcon}
             </TouchableOpacity>
-
+            <AppSearchBar
+              searchData={arrSong}
+              value={txtSearch}
+              handleClearInput={handleClearInput}
+              containerStyle={styles.inputSearch}
+              renderLeft={searchIcon}
+              renderRight={icClose}
+              handleInputSearch={handleInputSearch}
+              txtHolder={I18n.t('search')}
+              handleResults={handleResults}
+            />
           </View>
 
           {

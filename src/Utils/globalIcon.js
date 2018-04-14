@@ -19,6 +19,7 @@ export const icClose = <Ionicons name={'ios-close'} size={width(9)} color={black
 export const lockIcon = <Ionicons name='ios-lock' size={width(5)} color={'white'} />
 export const menuIcon = <Ionicons name='ios-menu' size={width(9)} color={'black'} />
 export const searchIcon = <Ionicons name='ios-search' size={width(8)} color={'black'} />
+export const searchIconSmall = <Ionicons name='ios-search' size={width(6)} color={'black'} />
 export const iconFlash = <Ionicons name='md-flash' size={width(4)} color={'white'} />
 export const iconBack = <Ionicons name='ios-arrow-back' size={width(8)} color={'black'} />
 export const iconDown = <Ionicons name='md-arrow-dropdown' size={width(4)} color={'black'} />
@@ -39,8 +40,7 @@ export const checkIcon = <FontAwesome name='check' size={width(11)} color={'whit
 // MaterialCommunityIcons
 export const emailIcon = <MaterialCommunityIcons name='email-outline' size={width(5)} color={'white'} />
 export const icHistory = <MaterialCommunityIcons name='history' size={width(6)} color={'white'} />
-export const icSignal = <MaterialCommunityIcons name='signal' size={width(4)} color={blackColor} />
-export const ethIcon = <MaterialCommunityIcons name='currency-eth' size={width(5)} color={blackColor} />
+export const playListRemove = <MaterialCommunityIcons name='playlist-remove' size={width(7)} color={blackColor} />
 
 // Feather
 export const repeatIcon = <Feather name='repeat' size={width(6)} color={blackColor} />
@@ -54,6 +54,7 @@ export const checkIconBlack = <Feather name='check' size={width(4)} color={black
 // SimpleLineIcons
 export const bellIcon = <SimpleLineIcons name='bell' size={width(7)} color={'black'} />
 export const icHome = <SimpleLineIcons name='home' size={width(5)} color={'white'} />
+export const icVertical = <SimpleLineIcons name='options-vertical' size={width(5)} color={'black'} />
 
 // Entypo
 export const iconShuffle = <Entypo name='shuffle' size={width(3.5)} color={blackColor} />
@@ -67,3 +68,6 @@ export const icBonus = <Octicons name='gift' size={width(6)} color={'white'} />
 export const playIcon = <MaterialIcons name='play-arrow' size={width(10)} color={'black'} />
 export const pauseIcon = <MaterialIcons name='pause' size={width(10)} color={'#FFF305'} />
 export const placeIcon = <MaterialIcons name='place' size={width(5)} color={blackColor} />
+export const infoIcon = <MaterialIcons name='info-outline' size={width(7)} color={blackColor} />
+
+export const addPlaylist = <MaterialIcons name='playlist-add' size={width(7)} color={blackColor} />

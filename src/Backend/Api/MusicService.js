@@ -18,6 +18,44 @@ export default class ZignalService {
     }
   }
 
+  static async getAlbum () {
+    try {
+      var response = await fetch(serverUrl + 'album', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      let responJson = await response.json()
+      console.log(responJson)
+      return responJson.data
+    } catch (error) {
+      return undefined
+    }
+  }
+
+  static async updateSong (mySong, id) {
+    try {
+      var response = await fetch(serverUrl + 'updateSong', {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id,
+          mySong
+        })
+      })
+      let responJson = await response.json()
+      console.log(responJson)
+      return responJson.data.data
+    } catch (error) {
+      return undefined
+    }
+  }
+
   static async createSignal (name, target, exchange, tipTarget, type) {
     try {
       var response = await fetch(serverUrl + 'signal', {

@@ -12,6 +12,13 @@ export const subBeforeAfter = (string) => {
   return strSplit
 }
 
+export const getMinutes = (second) => {
+  var minutes = Math.floor(second / 60)
+  var seconds = second - minutes * 60
+
+  return minutes + ':' + (seconds.toFixed().toString().length === 1 ? '0' + seconds.toFixed() : seconds.toFixed())
+}
+
 export const getColorSignal = (status) => {
   const nameColor = status === statusName.opening
     ? AppColor.main

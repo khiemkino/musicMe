@@ -4,6 +4,8 @@ import { Actions, Scene } from 'react-native-router-flux'
 import SplashScreen from '~/Screen/SplashScreen'
 import LoginScreen from '~/Screen/LoginScreen'
 import PlayScreen from '~/Screen/PlayScreen'
+import MySongScreen from '~/Screen/MySongScreen'
+import ProfileScreen from '~/Screen/ProfileScreen'
 import TabbarContainer from '~/Container/TabbarContainer'
 
 const scenes = Actions.create(
@@ -15,6 +17,9 @@ const scenes = Actions.create(
     <Scene key="tabbar" component={TabbarContainer} />
 
     <Scene key="playScreen" component={PlayScreen} />
+    <Scene key="profileScreen" component={ProfileScreen} />
+    <Scene key="mySongScreen" component={MySongScreen} />
+
   </Scene>
 )
 

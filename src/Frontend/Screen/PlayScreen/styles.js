@@ -22,6 +22,25 @@ const styles = EStyleSheet.create({
     borderColor: '$main'
   },
   songShadow: {
+    opacity: 0.7,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 1,
+      height: 2
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5
+  },
+  spkSpinner: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    zIndex: 5,
+    color: 'white',
+    top: height(20)
+  },
+  songShadowActive: {
     shadowColor: 'black',
     shadowOffset: {
       width: 1,
@@ -95,7 +114,29 @@ const styles = EStyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  textTime: {
+    fontSize: width(4),
+    color: '#6B696A',
+    fontFamily: '$fontBold'
+  },
+  timeContainer: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    width: width(90),
+    paddingBottom: height(2)
+  },
   footerPage: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    alignSelf: 'center',
+    position: 'absolute',
+    paddingVertical: height(3),
+    bottom: 0,
+    opacity: 0.7
+  },
+  footerPageActive: {
     alignItems: 'center',
     justifyContent: 'space-between',
     alignSelf: 'center',

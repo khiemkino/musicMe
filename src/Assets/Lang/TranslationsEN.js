@@ -4,5 +4,21 @@ export default {
   'album': 'Albums',
   'playlist': 'Playlist',
   'setting': 'Settings',
-  'search': 'Enter key search'
+  'search': 'Enter key search',
+  'mySong': 'My Songs',
+  'myAlbum': 'My Album',
+  'addSong': 'Add to your song',
+  'removeSong': 'Remove from your song',
+  'songInfo': 'Song info',
+  'songInfoDetail': 'Song information detail',
+  'song': 'Songs',
+  'singer': 'Singer',
+  'rank': 'Rank',
+  'profile': 'Profile',
+  'myProfile': 'My Profile',
+  'close': 'Close',
+  'follow': 'Following',
+  'newPlaylist': 'New Playlist',
+  'hotPlaylist': 'Hot Playlist',
+  'favorite': 'Favorite'
 }
