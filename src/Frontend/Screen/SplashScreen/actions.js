@@ -1,6 +1,7 @@
 import { KEYSTORE } from '@/globalConstants'
 import { Actions, ActionConst } from 'react-native-router-flux'
 import { EventRegister } from 'react-native-event-listeners'
+import { updateSongServer } from '@/globalFunction'
 import store from 'react-native-simple-store'
 
 export const handleConnectionChange = (isConnected) => {
@@ -12,10 +13,15 @@ export const handleConnectionChange = (isConnected) => {
 export const handleChangeRoute = () => {
   return async (dispatch, getState) => {
     let userData = await store.get(KEYSTORE.SET_USER)
+    updateSongServer(dispatch)
+    let isGuideline = await store.get('Guide')
+
     setTimeout(() => {
       userData
         ? Actions.tabbar({ type: ActionConst.RESET })
-        : Actions.loginScreen({ type: ActionConst.RESET })
-    }, 500)
+        : isGuideline
+          ? Actions.loginScreen({ type: ActionConst.RESET })
+          : Actions.guidelineScreen({ type: ActionConst.RESET })
+    }, 1500)
   }
 }

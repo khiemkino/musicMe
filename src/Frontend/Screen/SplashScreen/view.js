@@ -16,7 +16,7 @@ export default class SplashScreen extends React.PureComponent {
 
   render () {
     return (
-      <Image source={images.splashScreen} style={styles.backgroundImage} />
+      <Image source={images.splashcreen} style={styles.backgroundImage} />
     )
   }
 }

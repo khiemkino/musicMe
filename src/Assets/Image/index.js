@@ -1,5 +1,6 @@
 const images = {
   background: require('./background.png'),
+  splashcreen: require('./splashscreen.gif'),
   backgroundInside: require('./backgroundInside.png'),
   backgroundSong: require('./backgroundSong.png'),
   profilebg: require('./profilebg.jpg'),
@@ -15,7 +16,12 @@ const images = {
   noresult: require('./noresult.png'),
   playIcon: require('./playIcon.png'),
   scanQr: require('./scanQr.png'),
-  comingSoon: require('./comingsoon.gif')
+  comingSoon: require('./comingsoon.gif'),
+
+  guideLine1: require('./guideLine1.jpg'),
+  guideLine2: require('./guideLine2.jpg'),
+  guideLine3: require('./guideLine3.jpg'),
+  guideLine4: require('./guideLine4.jpg')
 }
 
 export default images

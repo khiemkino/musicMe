@@ -1,6 +1,6 @@
-import io from 'socket.io-client'
+// import io from 'socket.io-client'
 
-var socket
+// var socket
 export const keyExtractor = (item, index) => {
   return index.toString()
 }
@@ -13,16 +13,13 @@ export const getMinutes = (second) => {
 }
 
 // export const updateSongServer = (dispatch) => {
-//   // Create WebSocket connection.
-//   const ws = new WebSocket('wss://stream.binance.com:9443/ws/engbtc@aggTrade')
-//   // Connection opened
-//   ws.addEventListener('open', function (event) {
-//     console.log(event)
+//   socket = io.connect('http://localhost:3000/', {
+//     transports: ['websocket']
 //   })
-//   // Listen for messages
-//   ws.addEventListener('message', function (newEvent) {
-//     var wsEvent = JSON.parse(newEvent.data)
-//     console.log(wsEvent)
-//     dispatch(getExchangeRate(wsEvent))
+
+//   socket.on('connect', () => console.log('test'))
+
+//   socket.on('event', async (event) => {
+//     console.log(event)
 //   })
 // }
