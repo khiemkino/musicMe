@@ -37,7 +37,8 @@ const styles = EStyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     zIndex: 5,
-    color: 'black'
+    color: 'white',
+    top: height(20)
   },
   songShadowActive: {
     shadowColor: 'black',

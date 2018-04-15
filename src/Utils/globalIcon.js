@@ -22,6 +22,7 @@ export const searchIcon = <Ionicons name='ios-search' size={width(8)} color={'bl
 export const searchIconSmall = <Ionicons name='ios-search' size={width(6)} color={'black'} />
 export const iconFlash = <Ionicons name='md-flash' size={width(4)} color={'white'} />
 export const iconBack = <Ionicons name='ios-arrow-back' size={width(8)} color={'black'} />
+export const iconBackWhite = <Ionicons name='ios-arrow-back' size={width(8)} color={'white'} />
 export const iconDown = <Ionicons name='md-arrow-dropdown' size={width(4)} color={'black'} />
 export const iconPricetag = <Ionicons name='md-pricetags' size={width(5)} color={blackColor} />
 export const icSetting = <Ionicons name='ios-settings' size={width(7)} color={'white'} />

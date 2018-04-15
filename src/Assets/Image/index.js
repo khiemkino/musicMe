@@ -13,7 +13,9 @@ const images = {
   rank: require('./rank.png'),
   home: require('./home.png'),
   noresult: require('./noresult.png'),
-  playIcon: require('./playIcon.png')
+  playIcon: require('./playIcon.png'),
+  scanQr: require('./scanQr.png'),
+  comingSoon: require('./comingsoon.gif')
 }
 
 export default images

@@ -3,6 +3,7 @@ import { Image, View, TouchableOpacity, Text } from 'react-native'
 
 import HomeScreen from '~/Screen/HomeScreen'
 import PlayListScreen from '~/Screen/PlayListScreen'
+import ComingSoon from '~/Screen/ComingSoon'
 import AlbumScreen from '~/Screen/AlbumScreen'
 import { iconHeart } from '@/globalIcon'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -46,7 +47,7 @@ class TabbarTopScreen extends React.Component {
     case 0: PageRender = <HomeScreen />; break
     case 1: PageRender = <AlbumScreen />; break
     case 2: PageRender = <PlayListScreen />; break
-    case 3: PageRender = <HomeScreen />; break
+    case 3: PageRender = <ComingSoon />; break
     default:
       break
     }

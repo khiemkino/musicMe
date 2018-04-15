@@ -2,6 +2,19 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 import { width, height } from '@/globalStyles'
 
 const styles = EStyleSheet.create({
+  findContainer: {
+    height: height(10),
+    width: width(100),
+    backgroundColor: '$black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
+  },
+  textFindMusic: {
+    fontSize: width(5),
+    fontFamily: '$fontRegular',
+    color: 'white'
+  },
   container: {
     marginTop: height(5)
   },
@@ -16,6 +29,17 @@ const styles = EStyleSheet.create({
     width: width(88),
     justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  cameraContainer: {
+    width: width(100),
+    height: height(85)
+  },
+  qrHeader: {
+    height: height(15),
+    width: width(30),
+    resizeMode: 'contain',
+    position: 'absolute',
+    bottom: -height(8)
   },
   inputSearch: {
     width: width(70),
@@ -54,7 +78,7 @@ const styles = EStyleSheet.create({
     paddingHorizontal: width(3),
     alignSelf: 'center',
     marginTop: height(4),
-    marginBottom: height(13)
+    marginBottom: height(23)
   },
   loadingContainer: {
     height: height(70),

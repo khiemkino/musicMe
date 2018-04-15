@@ -50,7 +50,7 @@ export default class HomeScreen extends PureComponent {
 
   render () {
     const { arrSong, isLoading, txtSearch, handleClearInput, handleInputSearch, handleResults } = this.state
-    const { routeMySong, handleOpenMenu, userData } = this.props
+    const { routeMySong, handleOpenMenu, userData, handleOpenScanQr } = this.props
     return (
       <Drawer
         ref={'drawer'}
@@ -67,19 +67,14 @@ export default class HomeScreen extends PureComponent {
             <TouchableOpacity onPress={handleOpenMenu}>
               {menuIcon}
             </TouchableOpacity>
-            <AppSearchBar
-              searchData={arrSong}
-              value={txtSearch}
-              handleClearInput={handleClearInput}
-              containerStyle={styles.inputSearch}
-              renderLeft={searchIcon}
-              renderRight={icClose}
-              handleInputSearch={handleInputSearch}
-              txtHolder={I18n.t('search')}
-              handleResults={handleResults}
-            />
+            <View/>
           </View>
-
+          <View style={styles.findContainer}>
+            <Text style={styles.textFindMusic}>{'Find your music'}</Text>
+            <TouchableOpacity onPress={handleOpenScanQr}>
+              <Image source={images.scanQr} style={styles.qrHeader} />
+            </TouchableOpacity>
+          </View>
           {
             isLoading
               ? <View style={styles.loadingContainer}>

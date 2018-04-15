@@ -38,3 +38,9 @@ export const handleOpenMenu = () => {
     THIS.refs.drawer.open()
   }
 }
+
+export const handleOpenScanQr = () => {
+  return (dispatch, getState) => {
+    Actions.qrCodeScreen()
+  }
+}

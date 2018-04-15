@@ -9,7 +9,6 @@ global.ISIOS = Platform.OS === 'ios'
 global.space = ' '
 Text.defaultProps.allowFontScaling = false
 
-// DEFAULT GLOBAL STYLE FOR ZIGNAL
 EStyleSheet.build({
   $main: AppColor.main,
   $green: AppColor.green,
