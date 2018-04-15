@@ -3,7 +3,6 @@ import { View, StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-nativ
 import gStyles from '@/globalStyles'
 import styles from './styles'
 import CoreHeader from './CoreHeader'
-import { AppAlert, AppPushNotify, AppInternetAlert } from '~/Components/AppAlert'
 
 class CoreLayoutContainer extends PureComponent {
   constructor (props) {
@@ -13,12 +12,8 @@ class CoreLayoutContainer extends PureComponent {
 
   dismissKeyboard = () => Keyboard.dismiss()
 
-  showAlert (mesage, isError) {
-    this.refs.appAlert.alertWithType(mesage, isError)
-  }
-
   get renderContent () {
-    const { children, style, isDisableInternetAlert = false } = this.props
+    const { children, style } = this.props
     return (
       <View style={gStyles.backgroundDefault} >
         <View style={gStyles.backgroundDefault} >
@@ -28,11 +23,7 @@ class CoreLayoutContainer extends PureComponent {
             <StatusBar barStyle="dark-content" />
             {children}
           </View>
-          {!isDisableInternetAlert && <AppInternetAlert />}
-          <AppPushNotify ref={'appPushNotify'} />
-
         </View>
-        <AppAlert ref={'appAlert'} />
       </View>
     )
   }

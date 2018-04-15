@@ -13,7 +13,6 @@ import I18n from '*/Lang'
 import styles from './styles'
 import { width } from '@/globalStyles'
 // custom modal
-import { AppAlert } from '~/Components/AppAlert'
 
 const icons = [
   { key: '0', icon: 'home', label: 'home' },
@@ -27,10 +26,6 @@ class TabbarTopScreen extends React.Component {
     this.state = {
       isActivePage: 0
     }
-  }
-
-  showAlert (mesage, isError) {
-    this.refs.appAlert.alertWithType(mesage, isError)
   }
 
   goToPage (isActivePage) {
@@ -56,7 +51,6 @@ class TabbarTopScreen extends React.Component {
       <View style={{flex: 1}}>
         {PageRender}
         <Image source={images.backgroundInside} style={styles.backgroundStyle} />
-        <AppAlert ref={'appAlert'} />
         <View style={styles.tabs}>
           {icons.map((tab, i) => {
             return (
