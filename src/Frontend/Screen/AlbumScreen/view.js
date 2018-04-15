@@ -98,7 +98,7 @@ export default class SplashScreen extends React.PureComponent {
   }
 
   render () {
-    const { arrAlbum, isLoading, albumName, arrSongAlbum, currentTime, trackDuration, isPlay, isLoadingSong, songSelectIndex } = this.state
+    const { songSelectId, arrAlbum, isLoading, albumName, arrSongAlbum, currentTime, trackDuration, isPlay, isLoadingSong, songSelectIndex } = this.state
     const { handleSnapToItem, handleActivePlay, handleSelectNextSong, handleSelectPreviousSong } = this.props
 
     const isFirst = (songSelectIndex === 0 || songSelectIndex === -1)
@@ -139,8 +139,8 @@ export default class SplashScreen extends React.PureComponent {
         }
         <Animatable.View
           transition={'opacity'}
-          style={isLoadingSong ? styles.footerPage : styles.footerPageActive}
-          pointerEvents={isLoadingSong ? 'none' : 'box-none'}>
+          style={(isLoadingSong || songSelectId === -1) ? styles.footerPage : styles.footerPageActive}
+          pointerEvents={(isLoadingSong || songSelectId === -1) ? 'none' : 'box-none'}>
           <View style={styles.timeContainer}>
             <Text style={styles.textTime}>{currentTime ? getMinutes(currentTime) : '0:00'}</Text>
             <Text style={styles.textTime}>{trackDuration !== 0 ? getMinutes(trackDuration) : '...'}</Text>

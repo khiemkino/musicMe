@@ -47,13 +47,14 @@ const styles = EStyleSheet.create({
   textTitle: {
     fontFamily: '$fontBold',
     fontSize: width(5),
-    color: 'black'
+    color: 'black',
+    marginVertical: height(1)
   },
   playListContainer: {
     paddingHorizontal: width(3),
     alignSelf: 'center',
     marginTop: height(4),
-    marginBottom: height(6)
+    marginBottom: height(13)
   },
   loadingContainer: {
     height: height(70),

@@ -21,9 +21,15 @@ export const handleToSong = (songItem) => {
   }
 }
 
-export const routeMySong = () => {
+export const routeMySong = (song) => {
   return (dispatch, getState) => {
-    Actions.mySongScreen()
+    Actions.mySongScreen({ songItem: THIS.state.arrSong })
+  }
+}
+
+export const routePlayList = (arrSong, titleName) => {
+  return (dispatch, getState) => {
+    Actions.playListDetailScreen({ arrSong, titleName })
   }
 }
 

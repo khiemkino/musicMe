@@ -46,6 +46,8 @@ export default class HomeScreen extends PureComponent {
     )
   }
 
+  routePlayList = (song, title) => () => this.props.routePlayList(song, title)
+
   render () {
     const { arrSong, isLoading, txtSearch, handleClearInput, handleInputSearch, handleResults } = this.state
     const { routeMySong, handleOpenMenu, userData } = this.props
@@ -65,7 +67,17 @@ export default class HomeScreen extends PureComponent {
             <TouchableOpacity onPress={handleOpenMenu}>
               {menuIcon}
             </TouchableOpacity>
-
+            <AppSearchBar
+              searchData={arrSong}
+              value={txtSearch}
+              handleClearInput={handleClearInput}
+              containerStyle={styles.inputSearch}
+              renderLeft={searchIcon}
+              renderRight={icClose}
+              handleInputSearch={handleInputSearch}
+              txtHolder={I18n.t('search')}
+              handleResults={handleResults}
+            />
           </View>
 
           {
@@ -74,7 +86,9 @@ export default class HomeScreen extends PureComponent {
                 <Image source={images.loading} style={styles.imgLoading} />
               </View>
               : <ScrollView style={styles.playListContainer}>
-                <Text onPress={routeMySong} style={styles.textTitle}>{I18n.t('newPlaylist')}</Text>
+                <TouchableOpacity onPress={this.routePlayList(arrSong, I18n.t('newPlaylist'))}>
+                  <Text style={styles.textTitle}>{I18n.t('newPlaylist')}</Text>
+                </TouchableOpacity>
                 <FlatList
                   data={arrSong}
                   horizontal={true}
@@ -82,7 +96,9 @@ export default class HomeScreen extends PureComponent {
                   keyExtractor={keyExtractor}
                   renderItem={this.renderSong}
                 />
-                <Text onPress={routeMySong} style={styles.textTitle}>{I18n.t('hotPlaylist')}</Text>
+                <TouchableOpacity onPress={this.routePlayList(arrSong, I18n.t('hotPlaylist'))}>
+                  <Text style={styles.textTitle}>{I18n.t('hotPlaylist')}</Text>
+                </TouchableOpacity>
                 <FlatList
                   data={arrSong}
                   horizontal={true}
@@ -90,7 +106,9 @@ export default class HomeScreen extends PureComponent {
                   keyExtractor={keyExtractor}
                   renderItem={this.renderSong}
                 />
-                <Text onPress={routeMySong} style={styles.textTitle}>{I18n.t('mySong')}</Text>
+                <TouchableOpacity onPress={routeMySong}>
+                  <Text style={styles.textTitle}>{I18n.t('mySong')}</Text>
+                </TouchableOpacity>
                 <FlatList
                   data={userData.mySong}
                   horizontal={true}

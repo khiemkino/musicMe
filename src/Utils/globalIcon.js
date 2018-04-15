@@ -30,6 +30,8 @@ export const icCloseLarge = <Ionicons name='md-close' size={width(4)} color={'wh
 export const copyIcon = <Ionicons name='ios-copy' size={width(5)} color={blackColor} />
 
 // FontAwesome
+export const backwardSmallIcon = <FontAwesome name='backward' size={width(4)} color={'black'} />
+export const forwardSmallIcon = <FontAwesome name='forward' size={width(4)} color={'black'} />
 export const backwardIcon = <FontAwesome name='backward' size={width(5)} color={'black'} />
 export const forwardIcon = <FontAwesome name='forward' size={width(5)} color={'black'} />
 export const userIcon = <FontAwesome name='user-o' size={width(5)} color={'white'} />
@@ -65,6 +67,8 @@ export const iconHeart = <FontAwesome name='heart-o' size={width(7)} color={'bla
 // Octicons
 export const icBonus = <Octicons name='gift' size={width(6)} color={'white'} />
 
+export const playSmallIcon = <MaterialIcons name='play-arrow' size={width(7)} color={'black'} />
+export const pauseSmallIcon = <MaterialIcons name='pause' size={width(7)} color={'#FFF305'} />
 export const playIcon = <MaterialIcons name='play-arrow' size={width(10)} color={'black'} />
 export const pauseIcon = <MaterialIcons name='pause' size={width(10)} color={'#FFF305'} />
 export const placeIcon = <MaterialIcons name='place' size={width(5)} color={blackColor} />

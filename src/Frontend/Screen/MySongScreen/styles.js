@@ -56,7 +56,41 @@ const styles = EStyleSheet.create({
     fontFamily: '$fontRegular',
     color: '$black'
   },
+  imgNoresult: {
+    height: height(30),
+    width: width(50),
+    resizeMode: 'contain'
+  },
+  playIcon: {
+    height: height(10),
+    width: width(30),
+    position: 'absolute',
+    resizeMode: 'contain',
+    opacity: 0.8,
+    top: height(4),
+    left: width(1)
+  },
+  noresultContainer: {
+    height: height(50),
+    width: width(100),
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center'
+  },
+  spkSpinner: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    zIndex: 5,
+    color: '$black',
+    top: height(40)
+  },
   songListContainer: {
+    height: height(62),
+    opacity: 0.7
+  },
+  songListContainerActive: {
     height: height(62)
   },
   footerPage: {
@@ -179,6 +213,12 @@ const styles = EStyleSheet.create({
     fontSize: width(4),
     color: '#6C6969',
     width: width(15)
+  },
+  activeOpacity: {
+    opacity: 1
+  },
+  inActiveOpacity: {
+    opacity: 0.5
   },
   backRoute: {
     width: width(8),

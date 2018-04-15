@@ -6,6 +6,7 @@ import LoginScreen from '~/Screen/LoginScreen'
 import PlayScreen from '~/Screen/PlayScreen'
 import MySongScreen from '~/Screen/MySongScreen'
 import ProfileScreen from '~/Screen/ProfileScreen'
+import PlayListDetailScreen from '~/Screen/PlayListDetailScreen'
 import TabbarContainer from '~/Container/TabbarContainer'
 
 const scenes = Actions.create(
@@ -18,6 +19,7 @@ const scenes = Actions.create(
 
     <Scene key="playScreen" component={PlayScreen} />
     <Scene key="profileScreen" component={ProfileScreen} />
+    <Scene key="playListDetailScreen" component={PlayListDetailScreen} />
     <Scene key="mySongScreen" component={MySongScreen} />
 
   </Scene>

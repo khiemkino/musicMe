@@ -11,7 +11,9 @@ const images = {
   profilePic: require('./profilePic.jpg'),
   playlist: require('./playlist.png'),
   rank: require('./rank.png'),
-  home: require('./home.png')
+  home: require('./home.png'),
+  noresult: require('./noresult.png'),
+  playIcon: require('./playIcon.png')
 }
 
 export default images

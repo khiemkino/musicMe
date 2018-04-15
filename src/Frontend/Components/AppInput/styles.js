@@ -36,7 +36,7 @@ const styles = EStyleSheet.create({
   },
   // App Input Search
   rowContainer: {
-    width: '100%',
+    width: '90%',
     height: height(5.5),
     flexDirection: 'row',
     alignItems: 'center',

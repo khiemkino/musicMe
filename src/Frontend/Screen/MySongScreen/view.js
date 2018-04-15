@@ -7,14 +7,14 @@ import styles from './styles'
 import images from '*/Image'
 import FastImage from 'react-native-fast-image'
 import I18n from '*/Lang'
-
 import { width, height } from '@/globalStyles'
 import SpinnerKit from 'react-native-spinkit'
+import { AppSearchBar } from '~/Components/AppInput'
 import { getMinutes, keyExtractor } from '@/globalFunction'
 import {
-  searchIconSmall,
+  searchIconSmall, searchIcon, icClose,
   repeatIcon, backwardIcon, forwardIcon, playIcon, icVertical, addPlaylist, infoIcon,
-  pauseIcon, icShuffle, iconHeart, iconHeartActive, iconBack, playListRemove
+  pauseIcon, icShuffle, iconBack, playListRemove
 } from '@/globalIcon'
 import Modal from 'react-native-modalbox'
 
@@ -22,9 +22,19 @@ export default class SplashScreen extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      arrSong: [],
+      arrSong: props.songItem,
       songAdded: [],
-      songSelect: undefined
+      songSelect: undefined,
+      isPlay: false,
+      trackDuration: 0,
+      isLoadingSong: false,
+      currentTime: null,
+      songSelectId: -1,
+      songSelectIndex: -1,
+      isActiveSearch: false,
+      txtSearch: '',
+      isNoData: false,
+      resultData: null
     }
     props.defaultThis(this)
   }
@@ -34,17 +44,22 @@ export default class SplashScreen extends React.PureComponent {
   }
 
   selectSong = (item) => () => this.props.selectSong(item)
+  handleSelectSong = (item, index) => () => this.props.handleSelectSong(item, index)
 
-  renderSong = ({ item }) => {
+  renderSong = ({ item, index }) => {
+    const { songSelectId } = this.state
     return (
-      <View style={styles.songContainer}>
+      <TouchableOpacity onPress={this.handleSelectSong(item, index)} style={styles.songContainer}>
         <View style={styles.leftContainer}>
-          <FastImage style={styles.imgSong}
-            source={{
-              uri: item.image,
-              priority: FastImage.priority.normal
-            }}
-            resizeMode={FastImage.resizeMode.cover} />
+          <View>
+            <FastImage style={styles.imgSong}
+              source={{
+                uri: item.image,
+                priority: FastImage.priority.normal
+              }}
+              resizeMode={FastImage.resizeMode.cover} />
+            {songSelectId === item.id && <Image source={images.playIcon} style={styles.playIcon} />}
+          </View>
           <View>
             <Text style={styles.textSongName}>{item.name}</Text>
             <Text style={styles.textSongSinger}>{item.singer}</Text>
@@ -54,18 +69,20 @@ export default class SplashScreen extends React.PureComponent {
         <TouchableOpacity activeOpacity={0.8} onPress={this.selectSong(item)} style={styles.addSong} >
           {icVertical}
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     )
   }
 
   render () {
-    const { arrSong, isLoading, currentTime, trackDuration, isPlay, songSelect, songAdded } = this.state
-    const { handleActivePlay, handleAddSong, handleOpenInfo, handleCloseInfo, handleBackRoute } = this.props
+    const { isNoData, songSelectId, txtSearch, isActiveSearch, songSelectIndex, isLoadingSong, arrSong, isLoading, currentTime, trackDuration, isPlay, songSelect, songAdded } = this.state
+    const { handleClearInput, handleActivePlay, handleSelectNextSong, handleActiveSearch, handleInputSearch, handleResults,
+      handleSelectPreviousSong, handleAddSong, handleOpenInfo, handleCloseInfo, handleBackRoute } = this.props
     let isExist
     if (songSelect) {
       isExist = songAdded.includes(songSelect.id)
     }
-
+    const isFirst = (songSelectIndex === 0 || songSelectIndex === -1)
+    const isLast = (songSelectIndex === (arrSong.length - 1) || songSelectIndex === -1)
     return (
       <View style={styles.container}>
         <Image source={images.backgroundSong} style={styles.backgroundStyle} />
@@ -73,11 +90,29 @@ export default class SplashScreen extends React.PureComponent {
           <TouchableOpacity onPress={handleBackRoute} style={styles.backRoute}>
             {iconBack}
           </TouchableOpacity>
-          <Text style={styles.txtTitle}>{I18n.t('mySong')}</Text>
-          {searchIconSmall}
+          {
+            isActiveSearch ? <AppSearchBar
+              searchData={arrSong}
+              value={txtSearch}
+              handleClearInput={handleClearInput}
+              containerStyle={styles.inputSearch}
+              renderLeft={searchIcon}
+              renderRight={icClose}
+              handleInputSearch={handleInputSearch}
+              txtHolder={I18n.t('search')}
+              handleResults={handleResults}
+            /> : <Text style={styles.txtTitle}>{I18n.t('mySong')}</Text>
+          }
+          {
+            !isActiveSearch && <TouchableOpacity onPress={handleActiveSearch} >
+              {searchIcon}
+            </TouchableOpacity>
+          }
         </View>
-
-        <Animatable.View style={isLoading ? styles.footerPage : styles.footerPageActive} pointerEvents={isLoading ? 'none' : 'box-none'}>
+        <Animatable.View
+          transition={'opacity'}
+          style={(isLoadingSong || songSelectId === -1) ? styles.footerPage : styles.footerPageActive}
+          pointerEvents={(isLoadingSong || songSelectId === -1) ? 'none' : 'box-none'}>
           <View style={styles.timeContainer}>
             <Text style={styles.textTime}>{currentTime ? getMinutes(currentTime) : '0:00'}</Text>
             <Text style={styles.textTime}>{trackDuration !== 0 ? getMinutes(trackDuration) : '...'}</Text>
@@ -92,26 +127,50 @@ export default class SplashScreen extends React.PureComponent {
           <View style={styles.footerContainer}>
             {repeatIcon}
             <View style={styles.btnPlayContainer}>
-              {backwardIcon}
+              <TouchableOpacity disabled={isFirst} onPress={handleSelectPreviousSong}>
+                <Animatable.View
+                  transition={'opacity'}
+                  style={isFirst ? styles.inActiveOpacity : styles.activeOpacity}
+                >
+                  {backwardIcon}
+                </Animatable.View>
+              </TouchableOpacity>
               <TouchableOpacity onPress={handleActivePlay} style={styles.btnPlay}>
                 {isPlay ? pauseIcon : playIcon}
               </TouchableOpacity>
-              {forwardIcon}
+              <TouchableOpacity disabled={isLast} onPress={handleSelectNextSong}>
+                <Animatable.View
+                  transition={'opacity'}
+                  style={isLast ? styles.inActiveOpacity : styles.activeOpacity}
+                >
+                  {forwardIcon}
+                </Animatable.View>
+              </TouchableOpacity>
             </View>
             {icShuffle}
           </View>
 
         </Animatable.View>
 
-        <View style={styles.songListContainer}>
-          <FlatList
-            data={arrSong}
-            extraData={this.state}
-            keyExtractor={keyExtractor}
-            renderItem={this.renderSong}
-          />
+        {
+          isNoData
+            ? <View style={styles.noresultContainer}>
+              <Image source={images.noresult} style={styles.imgNoresult} />
+            </View>
+            : <Animatable.View pointerEvents={isLoadingSong ? 'none' : 'box-none'} transition={'opacity'} style={isLoadingSong ? styles.songListContainer : styles.songListContainerActive}>
+              <FlatList
+                data={arrSong}
+                extraData={this.state}
+                keyExtractor={keyExtractor}
+                renderItem={this.renderSong}
+              />
+            </Animatable.View>
 
-        </View>
+        }
+
+        {
+          isLoadingSong && <SpinnerKit style={styles.spkSpinner} size={height(10)} type={'FadingCircleAlt'} />
+        }
         {songSelect &&
           <Modal style={styles.modal} position={'bottom'} ref={'mdPlaylist'}>
             <View style={styles.playListContainer}>

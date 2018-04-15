@@ -1,6 +1,4 @@
 import { Actions } from 'react-native-router-flux'
-import MusicService from '#/Api/MusicService'
-import { setLoginUser } from '#/Redux/actions/globalActions'
 import Sound from 'react-native-sound'
 
 var musicInterval
@@ -15,8 +13,8 @@ export const defaultThis = (_this) => {
 export const handleBackRoute = () => {
   return (dispatch, getState) => {
     track && track.stop()
-    Actions.pop()
     clearInterval(musicInterval)
+    Actions.pop()
   }
 }
 
@@ -45,87 +43,28 @@ export const handleInputSearch = (txtSearch) => {
   }
 }
 
-export const loadingSong = () => {
-  return async (dispatch, getState) => {
-    const { songAdded } = THIS.state
-    updateSongAdded()
-    THIS.setState({ songAdded })
-  }
-}
-
-const updateSongAdded = () => {
-  const { userData } = THIS.props
-  const { songAdded } = THIS.state
-  if (userData.mySong.length > 0) {
-    userData.mySong.map(item => {
-      songAdded.push(item.id)
-    })
-  }
-}
-
-export const selectSong = (songSelect) => {
-  return (dispatch, getState) => {
-    THIS.setState({ songSelect }, () => {
-      THIS.refs.mdPlaylist.open()
-    })
-  }
-}
-
-export const handleAddSong = () => {
-  return async (dispatch, getState) => {
-    const { songSelect, songAdded } = THIS.state
-    const { userData } = THIS.props
-
-    if (songAdded.includes(songSelect.id)) {
-      userData.mySong.map((item, index) => {
-        if (item.id === songSelect.id) {
-          userData.mySong.splice(index, 1)
-          songAdded.splice(songAdded.indexOf(songSelect.id), 1)
-        }
-      })
-    } else {
-      userData.mySong.push(songSelect)
-    }
-    updateSongAdded()
-
-    dispatch(setLoginUser(userData))
-    await MusicService.updateSong(userData.mySong, userData.id)
-    THIS.setState({ songAdded: userData.mySong.length === 0 ? [] : songAdded })
-    THIS.forceUpdate()
-  }
-}
-
-export const handleOpenInfo = () => {
-  return (dispatch, getState) => {
-    THIS.refs.mdInfo.open()
-  }
-}
-
-export const handleCloseInfo = () => {
-  return (dispatch, getState) => {
-    THIS.refs.mdInfo.close()
-  }
-}
-
-export const handleSelectSong = (song, songSelectIndex) => {
+export const handlePlaySong = (songSelect, songSelectIndex) => {
   return (dispatch, getState) => {
     track && track.stop()
     THIS.setState({ isLoadingSong: true })
-    track = new Sound(song.mp3Url, null, (error) => {
+    track = new Sound(songSelect.mp3Url, null, (error) => {
       if (error) {
         console.log('failed to load the sound', error)
         return
       }
       let trackDuration = track.getDuration()
 
-      THIS.setState({ trackDuration, isLoadingSong: false, currentTime: null, songSelectId: song.id, songSelectIndex })
+      THIS.setState({ songSelect, trackDuration, isLoadingSong: false, currentTime: null, songSelectId: songSelect.id, songSelectIndex }, () => {
+        THIS.refs.mdPlaySong.open()
+      })
     })
   }
 }
 
 export const handleSelectPreviousSong = () => {
   return (dispatch, getState) => {
-    const { arrSong, songSelectIndex } = THIS.state
+    const { songSelectIndex } = THIS.state
+    const { arrSong } = THIS.props
 
     track && track.stop()
     THIS.setState({ isLoadingSong: true })
@@ -149,7 +88,8 @@ export const handleSelectPreviousSong = () => {
 
 export const handleSelectNextSong = () => {
   return (dispatch, getState) => {
-    const { arrSong, songSelectIndex } = THIS.state
+    const { songSelectIndex } = THIS.state
+    const { arrSong } = THIS.props
 
     track && track.stop()
     THIS.setState({ isLoadingSong: true })
@@ -186,5 +126,11 @@ export const handleActivePlay = () => {
         }
       })
     }, 100)
+  }
+}
+
+export const handleFavorite = () => {
+  return (dispatch, getState) => {
+    THIS.setState({ isFavorite: !THIS.state.isFavorite })
   }
 }
